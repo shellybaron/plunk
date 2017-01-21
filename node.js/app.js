@@ -2,12 +2,15 @@ var express = require("express");
 
 var app = express();
 
+app.use(express.static("public"));
+app.set("view engine", "ejs");
+
 app.get("/", function(req, res) {
     res.render("home.ejs");
 });
 
-app.get("/groups", function(req, res) {
-   res.send("Inside the groups"); 
+app.get("/teams", function(req, res) {
+   res.render("teams.ejs"); 
 });
 
 app.listen(process.env.PORT, process.env.IP, function() {
